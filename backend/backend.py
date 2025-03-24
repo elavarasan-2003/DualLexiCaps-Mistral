@@ -45,10 +45,7 @@ def analyze_tweet(tweet: TweetInput):
 
     try:
         completion = client.chat.completions.create(
-            extra_headers={
-                "HTTP-Referer": "<YOUR_SITE_URL>",  # Optional: Change to your site
-                "X-Title": "<YOUR_SITE_NAME>",  # Optional: Change to your title
-            },
+            
             extra_body={},
             model="mistralai/mistral-7b-instruct:free",
             messages=[{"role": "user", "content": prompt}]
