@@ -12,11 +12,12 @@ app = FastAPI()
 # Enable CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change to specific frontend URL for security
+    allow_origins=["https://duallexicaps-mistral-frontend.onrender.com"],  # Use your frontend URL
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST"],  # Limit to only required methods
     allow_headers=["*"],
 )
+
 
 # Reddit API Credentials
 reddit = praw.Reddit(
