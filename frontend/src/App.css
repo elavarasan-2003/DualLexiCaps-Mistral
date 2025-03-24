@@ -1,0 +1,162 @@
+/* Dark Theme Background */
+body {
+  background-color: #000;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Main Container */
+.container {
+  width: 600px;
+  text-align: center;
+  padding: 30px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Title */
+h1 {
+  margin-bottom: 20px;
+  color: #ffcc00;
+  font-size: 24px;
+}
+
+/* Textbox */
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  border: 2px solid #333;
+  background: #222;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  resize: none;
+}
+
+/* Buttons Container */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* Button Base Styles */
+button {
+  flex: 1;
+  margin: 5px;
+  padding: 12px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* Different Button Colors */
+button.blue { background-color: #007bff; color: white; }
+button.orange { background-color: #ff9500; color: white; }
+button.gray { background-color: #666; color: white; }
+button.red { background-color: #d9534f; color: white; }
+
+/* Hover Effect */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Disabled Button */
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+/* ✅ New Loading Progress Bar (Professional Look) */
+.loading-container {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.progress-bar::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 30%;
+  background: #3498db;
+  animation: progress-animation 1.5s infinite ease-in-out;
+}
+
+@keyframes progress-animation {
+  0% {
+    left: -30%;
+  }
+  50% {
+    left: 50%;
+    width: 60%;
+  }
+  100% {
+    left: 100%;
+    width: 30%;
+  }
+}
+
+/* Loading Text */
+.loading-text {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #ddd;
+  font-style: italic;
+}
+
+/* Result Styling */
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Classification Styles */
+.hate {
+  background-color: #ff4c4c;
+  color: white;
+}
+.non-hate {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Typing Effect */
+.typing-effect {
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow: hidden;
+  display: inline-block;
+  border-right: 2px solid white;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
