@@ -29,7 +29,7 @@ reddit = praw.Reddit(
 # OpenRouter API Client
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key="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",  # Replace with actual key
+    api_key="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",  # Replace with actual key
 )
 
 class TweetInput(BaseModel):
