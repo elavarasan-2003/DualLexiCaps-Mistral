@@ -8,8 +8,28 @@ export default function App() {
   const [justification, setJustification] = useState("");
   const [loading, setLoading] = useState(false);
   const [typing, setTyping] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("Technology");
 
-  
+    const categories = [
+    "HatePolitics",
+    "Racism",
+    "Sexism",
+    "Homophobia",
+    "ReligiousIntolerance",
+    "Xenophobia",
+    "Ableism",
+    "HateSpeechMisinformation",
+    "Technology",
+    "Science",
+    "Space",
+    "CyberSecurity",
+    "Gadgets",
+    "Education",
+    "Health",
+    "Philosophy",
+    "Culture",
+    "HumanRights",
+  ];
 
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -48,11 +68,14 @@ export default function App() {
     setLoading(false);
   };
 
-  const fetchRedditPost = async () => {
+    const fetchRedditPost = async () => {
+    if (!selectedCategory) {
+      alert("Please select a category!");
+      return;
+    }
     setLoading(true);
     try {
-      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/fetch_reddit/`);
-
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/fetch_reddit/${selectedCategory}`);
       setTweet(response.data.post);
     } catch (error) {
       alert("Error fetching Reddit post.");
@@ -69,7 +92,8 @@ export default function App() {
   };
 
   return (
-    <div className="container">
+    <div className={`container ${classification === "Hate" ? "hate" : classification ? "non-hate" : ""}`}>
+
       <h1>🔍 Explainable DualLexiCaps + Mistral AI</h1>
 
       <textarea
@@ -82,9 +106,23 @@ export default function App() {
         <button className="blue" onClick={analyzeTweet} disabled={loading}>
           Analyze Tweet
         </button>
+
+        <select
+          className="dropdown"
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+        >
+          {categories.map((cat) => (
+            <option key={cat} value={cat}>
+              {cat}
+            </option>
+          ))}
+        </select>
+
         <button className="orange" onClick={fetchRedditPost} disabled={loading}>
           Fetch from Reddit
         </button>
+
         <button className="gray" onClick={clearText}>Clear</button>
         <button className="red" onClick={refreshPage}>Refresh</button>
       </div>
@@ -102,6 +140,12 @@ export default function App() {
           <p className="typing-effect">{typing}</p>
         </div>
       )}
+
+<footer>
+  <p>© 2025 All Rights Reserved.</p>
+  <p>Developed by Elavarasan | Ashwin Kumar | Thillai Prabakar</p>
+</footer>
+
     </div>
   );
 }
