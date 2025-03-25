@@ -1,6 +1,6 @@
-/* Dark Theme Background */
 body {
-  background-color: #000;
+  background: linear-gradient(to right, #1e161a, #25354b);
+
   color: white;
   font-family: "Poppins", sans-serif;
   display: flex;
@@ -9,15 +9,61 @@ body {
   height: 100vh;
   margin: 0;
 }
-
 /* Main Container */
+/* Base Container Styling */
 .container {
   width: 600px;
   text-align: center;
   padding: 30px;
-  background: #1a1a1a;
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  position: relative;
+  box-shadow: 0 0 20px rgba(249, 245, 245, 0.8), 0 0 40px rgba(95, 94, 94, 0.5);
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+/* Hate Speech Detected - Red Glow */
+.container.hate {
+  animation: fluctuateRed 2s infinite alternate;
+}
+
+@keyframes fluctuateRed {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(255, 0, 0, 1), 0 0 50px rgba(255, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Non-Hate Speech - Green Glow */
+.container.non-hate {
+  animation: fluctuateGreen 2s infinite alternate;
+}
+
+@keyframes fluctuateGreen {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8), 0 0 40px rgba(0, 255, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(0, 255, 0, 1), 0 0 50px rgba(0, 255, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+
+/* Dropdown */
+.dropdown {
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  border: none;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
 }
 
 /* Title */
@@ -159,4 +205,44 @@ button:disabled {
   50% {
     border-color: transparent;
   }
+}
+/* Footer */
+footer {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 12px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
+/* Dropdown Styling */
+.dropdown-container {
+  margin-top: 10px;
+}
+
+select {
+  padding: 10px;
+  border-radius: 6px;
+  background: #333;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border: 2px solid #ffcc00;
+}
+
+/* Footer Styling */
+footer {
+  margin-top: 30px;
+  padding: 15px;
+  background: #121212;
+  color: #ffcc00;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 8px;
 }
