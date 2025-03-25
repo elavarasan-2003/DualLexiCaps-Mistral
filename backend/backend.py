@@ -6,6 +6,7 @@ import praw
 import re
 import random
 from openai import OpenAI
+from fastapi import Path
 
 app = FastAPI()
 
@@ -69,9 +70,12 @@ def analyze_tweet(tweet: TweetInput):
     except Exception as e:
         return {"error": str(e)}
 
-@app.get("/fetch_reddit/")
-def fetch_reddit_post():
-    subreddits = ["HatePolitics", "Technology", "Science", "Space", "CyberSecurity", "Gadgets"]
-    subreddit = reddit.subreddit(random.choice(subreddits))
-    submission = next(subreddit.hot(limit=10))
-    return {"post": submission.title}
+@app.get("/fetch_reddit/{category}")
+def fetch_reddit_post(category: str = Path(..., title="Subreddit Category")):
+    try:
+        subreddit = reddit.subreddit(category)
+        submission = next(subreddit.hot(limit=10))
+        return {"post": submission.title}
+    except Exception as e:
+        return {"error": f"Could not fetch data from subreddit '{category}': {str(e)}"}
+
