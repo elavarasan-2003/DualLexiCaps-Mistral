@@ -140,12 +140,6 @@ export default function App() {
           <p className="typing-effect">{typing}</p>
         </div>
       )}
-
-//<footer>
-//  <p>© 2025 All Rights Reserved.</p>
- // <p>Developed by Elavarasan | Ashwin Kumar | Thillai Prabakar</p>
-//</footer>
-
     </div>
   );
 }
