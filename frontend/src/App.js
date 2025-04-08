@@ -94,7 +94,7 @@ export default function App() {
   return (
     <div className={`container ${classification === "Hate" ? "hate" : classification ? "non-hate" : ""}`}>
 
-      <h1>AI Powered Tweet Moderation</h1>
+      <h1>Explainable DualLexiCaps</h1>
 
       <textarea
         placeholder="Enter a tweet..."
@@ -140,6 +140,11 @@ export default function App() {
           <p className="typing-effect">{typing}</p>
         </div>
       )}
+
+<footer>
+ <p>© 2025 All Rights Reserved.</p>
+  <p>Developed by Elavarasan | Ashwin Kumar | Thillai Prabakar</p>
+</footer>
     </div>
   );
 }
