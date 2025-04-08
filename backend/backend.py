@@ -48,7 +48,8 @@ def analyze_tweet(tweet: TweetInput):
         completion = client.chat.completions.create(
             
             extra_body={},
-            model="mistralai/mistral-7b-instruct:free",
+            model="openai/gpt-3.5-turbo",
+
             messages=[{"role": "user", "content": prompt}]
         )
 
